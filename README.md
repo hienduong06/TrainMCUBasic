@@ -44,8 +44,8 @@ The following Wokwi simulations provide hands-on practice with the concepts cove
 |---|---|
 | GPIO Output | [Open Simulation](https://wokwi.com/projects/478110191827204097) |
 | GPIO Input | [Open Simulation](https://wokwi.com/projects/478110864126049281) |
-| GPIO Input: Pull-up and Pull-down | [Exercise 1](https://wokwi.com/projects/478112105509218305) |
-| GPIO Input: Pull-up and Pull-down | [Exercise 2](https://wokwi.com/projects/478114146827119617) |
+| GPIO Input: Pull-up and Pull-down External | [Open Simulation](https://wokwi.com/projects/478112105509218305) |
+| GPIO Input: Pull-up and Pull-down Internal | [Open Simulation](https://wokwi.com/projects/478114146827119617) |
 | ADC | [Open Simulation](https://wokwi.com/projects/478119122963112961) |
 
 ## Learning Objectives
