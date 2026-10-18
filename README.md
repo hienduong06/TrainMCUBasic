@@ -1,7 +1,7 @@
 
 # Basic Microcontroller Training
 
-A beginner-friendly introduction to microcontrollers, GPIO, ADC, PWM, UART, and basic circuit protection. This training material helps students understand fundamental microcontroller concepts through theoretical slides and practical simulations using Wokwi.
+A beginner-friendly introduction to microcontrollers, GPIO, ADC, PWM, UART, and basic circuit protection. This training material helps students understand fundamental microcontroller concepts through theoretical slides and practical circuit implementation.
 
 ## Presenter
 
@@ -36,27 +36,14 @@ Member of the Automotive Powertrain Research Club
 - Reverse-polarity protection diode
 - Optocoupler for electrical isolation
 
-## Practical Exercises
-
-The following Wokwi simulations provide hands-on practice with the concepts covered in the training.
-
-| Topic | Wokwi Simulation |
-|---|---|
-| GPIO Output | [Open Simulation](https://wokwi.com/projects/478110191827204097) |
-| GPIO Input | [Open Simulation](https://wokwi.com/projects/478110864126049281) |
-| GPIO Input: External Pull-up and Pull-down | [Open Simulation](https://wokwi.com/projects/478112105509218305) |
-| GPIO Input: Internal Pull-up and Pull-down | [Open Simulation](https://wokwi.com/projects/478114146827119617) |
-| ADC | [Open Simulation](https://wokwi.com/projects/478119122963112961) |
-
 ## Microcontroller Integration Project
 
-This project allows learners to apply GPIO, ADC, PWM, and UART concepts to a practical application. Learners must choose **one of the two project options** below and implement it using Wokwi, another circuit simulation tool, or physical Arduino hardware.
+This project allows learners to apply GPIO, ADC, PWM, and UART concepts to a practical application. Learners must choose **one of the two project options** below and implement it using physical Arduino hardware or a circuit simulator that supports the required transistor driver circuit.
 
-### Simulation Resources
+### Implementation Options
 
-- [Wokwi](https://wokwi.com/) — Online Arduino simulator.
-- [Proteus](https://www.labcenter.com/) — Circuit simulation and microcontroller development.
-- [Tinkercad Circuits](https://www.tinkercad.com/circuits) — Browser-based electronics simulation.
+- **Proteus:** Circuit simulation and microcontroller development, provided the required driver circuit can be modeled.
+- **Physical Arduino hardware:** Use this option when the required transistor driver circuit cannot be represented accurately in a simulator.
 
 ### General Hardware Configuration
 
@@ -68,15 +55,16 @@ The following configuration applies to both project options unless otherwise spe
 | Push button | D2 | Requests an immediate measurement report |
 | Green LED | D4 | Indicates a normal or optimal operating state |
 | Red LED | D5 | Indicates a warning or abnormal state |
-| PWM output | D6 for Option A; D3 for Option B | Controls LED brightness or simulates an output control signal |
-| C1815 NPN transistor | Connected to the PWM output circuit | Drives a suitable external load when required |
+| PWM output | D6 for Option A; D3 for Option B | Provides the PWM control signal |
+| Transistor driver circuit | Connected to the PWM output circuit | Drives the specified load through the required driver circuit |
 
 **Platform specifications:**
 - Arduino Uno R3 with a 5 V logic level.
 - 10-bit ADC with readings from 0 to 1023.
 - UART communication at 9600 baud.
-- Use an appropriate current-limiting resistor for each LED.
+- Use an appropriate current-limiting resistor for each indicator LED.
 - Configure the push button using either pull-up or pull-down logic, with the circuit and code matching the chosen configuration.
+- The required transistor driver circuit must be included and tested; an indicator LED alone does not replace the required driver circuit.
 
 ### Option A: Automotive Engine Temperature Warning System
 
@@ -144,28 +132,15 @@ The Serial Monitor must display the measured irradiance and current charging sta
 
 | Requirement | Description |
 |---|---|
-| Simulation or hardware | Implement the selected project using Wokwi, Proteus, Tinkercad Circuits, or a physical Arduino Uno R3. |
+| Implementation method | Implement the selected project using a simulator that supports the required driver circuit, or a physical Arduino Uno R3. |
 | ADC conversion | Correctly map ADC readings to the specified physical quantity and range. |
 | State management | Implement the operating rules using clear conditional logic. |
 | PWM control | Use a supported Arduino PWM pin and map the input value to the required output duty cycle. |
 | Serial monitoring | Display measurements, operating states, and warning messages through the Serial Monitor. |
-| Circuit design | Connect the LEDs, push button, potentiometer, and transistor driver correctly. |
-| Testing | Test values below, within, and above each threshold to verify all operating states. |
+| Circuit design | Connect the indicator LEDs, push button, potentiometer, and required transistor driver circuit correctly. |
+| Testing | Test values below, within, and above each threshold to verify all operating states. Test the transistor driver circuit separately under appropriate conditions. |
 | Code quality | Use readable variable names, clear state-handling logic, and comments for important functions. |
-| Submission | Submit the source code and circuit diagram or simulation project. Include screenshots or a shareable Wokwi project link when applicable. |
-
-### Wokwi Simulation Guide
-
-1. Open [Wokwi](https://wokwi.com/) and create a new Arduino Uno project.
-2. Add the potentiometer, push button, green LED, red LED, and PWM output components.
-3. Connect each component according to the pin configuration specified for the selected option.
-4. Implement the program in `sketch.ino`.
-5. Start the simulation and open the Serial Monitor to observe measurements, state changes, and warning messages.
-6. Adjust the potentiometer to test values below, at, and above each threshold.
-7. Press the button to verify that the system immediately reports the current measurement and state.
-8. Save the project and submit its shareable link along with the source code.
-
-**Simulation note:** Wokwi is suitable for testing Arduino GPIO, ADC, PWM, push-button input, and UART behavior. If a C1815 transistor model is unavailable or unsuitable, use a supported transistor model where appropriate, or verify the transistor driver circuit separately on physical hardware. An LED can be used to verify PWM logic during initial testing, but it does not replace testing the actual driver circuit when one is required.
+| Submission | Submit the source code, circuit diagram or simulation project, and screenshots showing the circuit and test results. |
 
 ## Learning Objectives
 
@@ -177,17 +152,15 @@ After completing this training, learners should be able to:
 - Explain the operation of pull-up and pull-down resistors.
 - Understand the basic principles of ADC, PWM, and UART.
 - Understand common circuit protection techniques.
-- Build and test basic microcontroller circuits using Wokwi.
+- Build and test basic microcontroller circuits using a suitable simulator or physical hardware.
 - Integrate analog inputs, digital inputs, LEDs, PWM outputs, and UART communication into a practical embedded application.
 - Implement threshold-based state detection and warning logic.
 
 ## Tools and Platforms
 
-- **Wokwi:** Online microcontroller simulator.
 - **Arduino Uno R3 / ATmega328P:** MCU hardware examples and project implementation.
 - **ESP32:** GPIO and embedded application examples.
-- **Proteus:** Alternative circuit simulation platform.
-- **Tinkercad Circuits:** Alternative browser-based electronics simulator.
+- **Proteus:** Circuit simulation platform, subject to support for the required driver circuit.
 - **Serial Monitor:** UART output monitoring and debugging.
 
 ## Learning Materials
@@ -196,4 +169,4 @@ The accompanying presentation, `TrainMCU.pptx`, contains the training slides and
 
 ---
 
-*This repository documents basic microcontroller training materials, Wokwi simulations, and an integration project for embedded systems beginners.*
+*This repository documents basic microcontroller training materials and an integration project for embedded systems beginners.*
